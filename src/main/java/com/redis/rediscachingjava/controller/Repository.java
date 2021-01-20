@@ -24,14 +24,14 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @Service
 public class Repository {
-    @Value("${REDIS_URL}")
+    @Value("${REDIS}")
     private String properies_uri;
 
     Jedis jedis;
 
     private void getConnection() {
         if (jedis == null) {
-            String REDIS_URL = System.getenv("REDIS_URL");
+            String REDIS_URL = System.getenv("REDIS");
 
             if (REDIS_URL == null) {
                 REDIS_URL = properies_uri;
