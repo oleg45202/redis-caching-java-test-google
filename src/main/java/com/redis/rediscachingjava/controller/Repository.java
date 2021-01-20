@@ -60,7 +60,7 @@ public class Repository {
             response.addHeader("Access-Control-Expose-Headers", "X-Response-Time");
             return String.format("{\"username\":\"%s\",\"repos\":\"%s\",\"cached\":%s}", gitName, gitData, isCached);
         }catch (Exception e){
-            return "URL": System.getenv("REDIS_URL");
+            return "URL" + System.getenv("REDIS_URL");
         }
     }
 
