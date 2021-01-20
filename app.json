@@ -8,7 +8,7 @@
   "env": {
     "REDIS_URL": {
       "description": "specify a css color",
-      "required": false
+      "required": true
     }
   }, "hooks": {
   "prebuild": {
