@@ -11,12 +11,12 @@
       "echo 'prebuild'",
       "./prebuildRedis"
     ]
-  }
-},
-  "env": {
-    "REDIS_URL": {
-      "description": "REDIS_URL",
-      "required": true
+  },
+    "env": {
+      "REDIS_URL": {
+        "description": "REDIS_URL",
+        "required": true
+      }
     }
-  }
+
 }
