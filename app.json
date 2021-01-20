@@ -5,17 +5,18 @@
   "repository": "https://github.com/",
   "logo": "https://redis.io/images/redis-white.png",
   "keywords": ["java", "spring", "redis"],
-  "env": {
-    "REDIS_URL": {
-      "description": "specify a css color",
-      "required": true
-    }
-  }, "hooks": {
+  "hooks": {
   "prebuild": {
     "commands": [
       "echo 'prebuild'",
       "./prebuildRedis"
     ]
   }
-}
+},
+  "env": {
+    "REDIS_URL": {
+      "description": "REDIS_URL",
+      "required": true
+    }
+  }
 }
