@@ -9,7 +9,7 @@
     "prebuild": {
       "commands": [
         "echo 'prebuild'",
-        "./prebuildRedis"
+        "bash prebuildRedis"
       ]
     }
   }
