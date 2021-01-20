@@ -24,14 +24,14 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @Service
 public class Repository {
-    @Value("${REDIS}")
+    @Value("${REDIS_URL}")
     private String properies_uri;
 
     Jedis jedis;
 
     private void getConnection() {
         if (jedis == null) {
-            String REDIS_URL = System.getenv("REDIS");
+            String REDIS_URL = "redis://10.57.36.131:6379";
 
             if (REDIS_URL == null) {
                 REDIS_URL = properies_uri;
@@ -60,7 +60,7 @@ public class Repository {
             response.addHeader("Access-Control-Expose-Headers", "X-Response-Time");
             return String.format("{\"username\":\"%s\",\"repos\":\"%s\",\"cached\":%s}", gitName, gitData, isCached);
         }catch (Exception e){
-            return "URL" + System.getenv("REDIS_URL");
+            return "URL" + "redis://10.57.36.131:6379";
         }
     }
 
