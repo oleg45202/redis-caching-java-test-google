@@ -12,5 +12,8 @@
         "bash prebuildRedis"
       ]
     }
+  },
+  "scripts": {
+    "create-env": "printenv > .env"
   }
 }
