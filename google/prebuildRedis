@@ -8,4 +8,4 @@ export REDIS_HOST=$(gcloud redis instances describe redisdb --region ${GOOGLE_CL
 export REDIS_PORT=$(gcloud redis instances describe redisdb --region ${GOOGLE_CLOUD_REGION} --format "value(port)")
 echo ${REDIS_HOST}
 echo ${REDIS_PORT}
-pack build gcr.io/gogle-test-302308/spring-java-redis-rate-limiting-example --path redis-caching-java-test-google --builder gcr.io/buildpacks/builder:v1
+pack build gcr.io/gogle-test-302308/spring-java-redis-rate-limiting-example --path redis-caching-java-test-google/ --builder gcr.io/buildpacks/builder:v1
