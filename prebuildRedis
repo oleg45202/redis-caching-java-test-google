@@ -1,14 +1,23 @@
-#!/bin/bash
+##!/bin/bash
 set -euxo pipefail
-#
-#echo $(gcloud redis instances describe redisdb --region ${GOOGLE_CLOUD_REGION} --format "value(host)")
-#echo $(gcloud redis instances describe redisdb --region ${GOOGLE_CLOUD_REGION} --format "value(port)")
-export REDIS_URL="77.88.00.11"
+
 gcloud config set project ${GOOGLE_CLOUD_PROJECT}
 
-gcloud functions deploy ${GOOGLE_CLOUD_PROJECT} \
---entry-point functions.EnvVars \
---runtime java11 \
---memory 512MB \
---set-env-vars REDIS_URL="77.88.00.11" \
---trigger-http
+export PARENT_PATH=$(cd ../ && pwd)
+export REDIS_HOST=$(gcloud redis instances describe redisdb --region ${GOOGLE_CLOUD_REGION} --format "value(host)")
+export REDIS_PORT=$(gcloud redis instances describe redisdb --region ${GOOGLE_CLOUD_REGION} --format "value(port)")
+echo ${REDIS_HOST}
+echo ${REDIS_PORT}
+#set -euxo pipefail
+##
+##echo $(gcloud redis instances describe redisdb --region ${GOOGLE_CLOUD_REGION} --format "value(host)")
+##echo $(gcloud redis instances describe redisdb --region ${GOOGLE_CLOUD_REGION} --format "value(port)")
+#export REDIS_URL="77.88.00.11"
+#gcloud config set project ${GOOGLE_CLOUD_PROJECT}
+#
+#gcloud functions deploy ${GOOGLE_CLOUD_PROJECT} \
+#--entry-point functions.EnvVars \
+#--runtime java11 \
+#--memory 512MB \
+#--set-env-vars REDIS_URL="77.88.00.11" \
+#--trigger-http
