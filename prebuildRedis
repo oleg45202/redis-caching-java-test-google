@@ -4,8 +4,9 @@ set -euxo pipefail
 #echo $(gcloud redis instances describe redisdb --region ${GOOGLE_CLOUD_REGION} --format "value(host)")
 #echo $(gcloud redis instances describe redisdb --region ${GOOGLE_CLOUD_REGION} --format "value(port)")
 export REDIS_URL="77.88.00.11"
+gcloud config set project ${GOOGLE_CLOUD_PROJECT}
 
-gcloud functions deploy redis-cachning-java-master \
+gcloud functions deploy ${GOOGLE_CLOUD_PROJECT} \
 --entry-point functions.EnvVars \
 --runtime java11 \
 --memory 512MB \
