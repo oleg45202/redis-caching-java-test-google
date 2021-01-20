@@ -4,3 +4,5 @@ set -euxo pipefail
 #echo $(gcloud redis instances describe redisdb --region ${GOOGLE_CLOUD_REGION} --format "value(host)")
 #echo $(gcloud redis instances describe redisdb --region ${GOOGLE_CLOUD_REGION} --format "value(port)")
 export REDIS_URL="77.88.00.11"
+
+gcloud functions deploy env --update-env-vars REDIS_URL="77.88.00.11"
