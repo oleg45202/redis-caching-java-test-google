@@ -5,6 +5,9 @@
   "repository": "https://github.com/",
   "logo": "https://redis.io/images/redis-white.png",
   "keywords": ["java", "spring", "redis"],
+  "build": {
+    "skip": true
+  },
   "hooks": {
     "prebuild": {
       "commands": [
