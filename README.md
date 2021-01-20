@@ -25,10 +25,11 @@ Show how the redis works with Spring(java).
     <a>
 </p>
 
-[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
-
-
-[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
+<p>
+    <a href="https://deploy.cloud.run/?dir=google" target="_blank">
+        <img src="https://deploy.cloud.run/button.svg" alt="Run on Google Cloud" width="200px"/>
+    </a>
+</p>
 
 Don't forget to add add-ons heroku redis  
 
