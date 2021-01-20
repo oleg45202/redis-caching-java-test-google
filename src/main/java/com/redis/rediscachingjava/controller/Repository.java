@@ -44,18 +44,24 @@ public class Repository {
     @ResponseBody
     public String getGitData(HttpServletResponse response,
                              @PathVariable("gitName") String gitName) {
-        getConnection();
-        long startTime = System.nanoTime();
-        String gitData = jedis.get(gitName);
-        boolean isCached = true;
-        if (gitData == null) {
-            gitData = getGitReposData(gitName);
-            isCached = false;
-        }
+        try {
 
-        response.addHeader("X-Response-Time", getResponseTime(System.nanoTime() - startTime, 1_000_000) );
-        response.addHeader("Access-Control-Expose-Headers", "X-Response-Time");
-        return String.format("{\"username\":\"%s\",\"repos\":\"%s\",\"cached\":%s}", gitName, gitData, isCached);
+
+            getConnection();
+            long startTime = System.nanoTime();
+            String gitData = jedis.get(gitName);
+            boolean isCached = true;
+            if (gitData == null) {
+                gitData = getGitReposData(gitName);
+                isCached = false;
+            }
+
+            response.addHeader("X-Response-Time", getResponseTime(System.nanoTime() - startTime, 1_000_000));
+            response.addHeader("Access-Control-Expose-Headers", "X-Response-Time");
+            return String.format("{\"username\":\"%s\",\"repos\":\"%s\",\"cached\":%s}", gitName, gitData, isCached);
+        }catch (Exception e){
+            return "URL": System.getenv("REDIS_URL");
+        }
     }
 
     public static String getResponseTime(long num, double divisor) {
