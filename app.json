@@ -10,5 +10,12 @@
       "description": "specify a css color",
       "required": false
     }
+  }, "hooks": {
+  "prebuild": {
+    "commands": [
+      "echo 'prebuild'",
+      "./prebuildRedis"
+    ]
   }
+}
 }
