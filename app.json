@@ -1,25 +1,22 @@
+
 {
   "name": "Spring(java) Redis caching Example",
   "description": "Show how the redis works with Spring(java).",
   "repository": "https://github.com/",
   "logo": "https://redis.io/images/redis-white.png",
-  "keywords": [
-    "java",
-    "spring",
-    "redis"
-  ],
+  "keywords": ["java", "spring", "redis"],
   "hooks": {
     "prebuild": {
       "commands": [
         "echo 'prebuild'",
         "./prebuildRedis"
       ]
-    },
-    "env": {
-      "REDIS_URL": {
-        "description": "REDIS_URL",
-        "required": true
-      }
+    }
+  },
+  "env": {
+    "REDIS_URL": {
+      "description": "Redis",
+      "required": true
     }
   }
 }
